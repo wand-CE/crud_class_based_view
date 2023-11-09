@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<article>
+    <h1>Cadastro de Produto</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <input type="submit" value="Salvar" >
+        <a href="{% url 'home' %}" role="button">Cancelar</a>
+    </form>
+</article>
+
+{% endblock conteudo %}

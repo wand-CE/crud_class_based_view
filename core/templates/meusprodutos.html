@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<article>
+    <table role="grid">
+        <thead>
+
+        <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>#</th>
+        </thead>
+        </tr>
+        <tbody>
+        {% for p in produtos %}
+        <tr>
+            <td>{{ p.nome }}</td>
+            <td>{{ p.descricao }}</td>
+            <td>{{ p.categoria }}</td>
+            <td>{{ p.preco }}</td>
+            <td>
+                <a href="{% url 'atualizarproduto' p.id %}" role="button">Atualizar</a>
+                <a href="{% url 'excluirproduto' p.id %}" role="button">Excluir</a>
+            </td>
+        {% empty %}
+            <td colspan="5">Sem produtos cadastrados!!!</td>
+        {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+</article>
+{% endblock conteudo %}

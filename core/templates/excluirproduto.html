@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<article>
+    <h2>Excluindo Produto</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>Confirma a exclusão do produto {{ object }} </p>
+        <input type="submit" value="Confirmar">
+        <a href="{% url 'home' %}" role="button">Cancelar</a>
+    </form>
+</article>
+{% endblock conteudo %}
